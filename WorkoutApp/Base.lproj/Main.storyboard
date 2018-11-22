@@ -26,6 +26,7 @@
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2Eb-7I-K2K">
                                             <connections>
                                                 <action selector="addWorkout:" destination="BYZ-38-t0r" id="zFY-Hz-8Oc"/>
+                                                <segue destination="Obo-h2-kn8" kind="show" id="Kfh-BK-oEf"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -38,6 +39,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="HMg-Ob-9SJ">
+            <objects>
+                <viewController id="Obo-h2-kn8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZaV-qn-VL6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="3Md-WX-AJO">
+                                <rect key="frame" x="265" y="20" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stepper>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="FVs-CZ-eqP"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ECi-g6-0fO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="818" y="27"/>
         </scene>
     </scenes>
 </document>
