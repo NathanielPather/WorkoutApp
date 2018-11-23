@@ -8,7 +8,8 @@
 
 import UIKit
 
-class AddWorkoutViewController: UIViewController {
+class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -16,11 +17,38 @@ class AddWorkoutViewController: UIViewController {
     }
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var setsLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var setsVal: Int = 0
     
     /* Why do actions need outlets? This method doesn't work when stepper outlet
  is commented out */
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
-        setsLabel.text = Int(sender.value).description
+        setsVal = Int(sender.value)
+        setsLabel.text = setsVal.description
+        tableView.reloadData()
+    }
+    
+    /*
+     For tableview to work, the tableviews datasource and delegate needs to be specified. Control drag the tableview in the storyboard to the yellow circle for view controller that is responsible for it. Select both datasource and delegate.
+     
+     Inside the view controller, the view controller needs to conform to both UITableViewDataSource and UITableViewDelegate, add these, seperated by "," next to the classes type.
+     
+     Then implement the methods numberOfSections, numberOfRows, and cellForRow
+ */
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return setsVal
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "Cell Text"
+        return cell
     }
     
     /*
