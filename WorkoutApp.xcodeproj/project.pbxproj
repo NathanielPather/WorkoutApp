@@ -13,6 +13,7 @@
 		A562D45821A6402B005AA52B /* WorkoutApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A562D45621A6402B005AA52B /* WorkoutApp.xcdatamodeld */; };
 		A562D45A21A6402F005AA52B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A562D45921A6402F005AA52B /* Assets.xcassets */; };
 		A562D45D21A6402F005AA52B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A562D45B21A6402F005AA52B /* LaunchScreen.storyboard */; };
+		A5AC4C9821A7D8F800974474 /* AddWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AC4C9721A7D8F800974474 /* AddWorkoutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A562D45921A6402F005AA52B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A562D45C21A6402F005AA52B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A562D45E21A6402F005AA52B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5AC4C9721A7D8F800974474 /* AddWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				A562D44F21A6402B005AA52B /* AppDelegate.swift */,
 				A562D45121A6402B005AA52B /* ViewController.swift */,
 				A562D45321A6402B005AA52B /* Main.storyboard */,
+				A5AC4C9721A7D8F800974474 /* AddWorkoutViewController.swift */,
 				A562D45921A6402F005AA52B /* Assets.xcassets */,
 				A562D45B21A6402F005AA52B /* LaunchScreen.storyboard */,
 				A562D45E21A6402F005AA52B /* Info.plist */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5AC4C9821A7D8F800974474 /* AddWorkoutViewController.swift in Sources */,
 				A562D45221A6402B005AA52B /* ViewController.swift in Sources */,
 				A562D45821A6402B005AA52B /* WorkoutApp.xcdatamodeld in Sources */,
 				A562D45021A6402B005AA52B /* AppDelegate.swift in Sources */,
