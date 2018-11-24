@@ -8,6 +8,12 @@
 
 import UIKit
 
+class RepsTableViewCell : UITableViewCell {
+    @IBOutlet weak var repsNoLabel: UILabel!
+    @IBOutlet weak var repsStepper: UIStepper!
+    
+}
+
 class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
@@ -23,6 +29,8 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
     
     /* Why do actions need outlets? This method doesn't work when stepper outlet
  is commented out */
+    
+    /* When stepperValue is changed, the tableView needs to reload because the rows are dependent on steppers value */
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         setsVal = Int(sender.value)
         setsLabel.text = setsVal.description
@@ -46,8 +54,7 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "Cell Text"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RepsCell", for: indexPath) as! RepsTableViewCell
         return cell
     }
     
