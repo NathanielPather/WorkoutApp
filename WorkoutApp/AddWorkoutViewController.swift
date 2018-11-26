@@ -37,6 +37,14 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.reloadData()
     }
     
+    @IBAction func repsStepperValueChanged(_ sender: UIStepper) {
+        tableView.reloadData()
+    }
+    
+    @IBAction func saveButton(_ sender: UIButton) {
+        print("save")
+    }
+    
     /*
      For tableview to work, the tableviews datasource and delegate needs to be specified. Control drag the tableview in the storyboard to the yellow circle for view controller that is responsible for it. Select both datasource and delegate.
      
@@ -55,6 +63,7 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepsCell", for: indexPath) as! RepsTableViewCell
+        cell.repsNoLabel.text = Int(cell.repsStepper.value).description
         return cell
     }
     
