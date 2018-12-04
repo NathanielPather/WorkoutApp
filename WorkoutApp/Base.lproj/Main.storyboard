@@ -96,7 +96,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="OlY-vG-zRJ">
-                                                    <rect key="frame" x="113" y="7.5" width="94" height="29"/>
+                                                    <rect key="frame" x="109.5" y="7.5" width="94" height="29"/>
                                                     <connections>
                                                         <action selector="repsStepperValueChanged:" destination="Obo-h2-kn8" eventType="valueChanged" id="7D6-CM-aWd"/>
                                                     </connections>
@@ -161,8 +161,9 @@
                     </view>
                     <connections>
                         <outlet property="setsLabel" destination="jlJ-ZW-mPU" id="o4f-ri-ZbB"/>
-                        <outlet property="stepper" destination="UWI-zm-zG2" id="Jsu-Ah-g1c"/>
+                        <outlet property="setsStepper" destination="UWI-zm-zG2" id="yir-gx-elC"/>
                         <outlet property="tableView" destination="ZFp-dI-cA1" id="fuJ-KR-l41"/>
+                        <outlet property="workoutName" destination="4gz-K0-i5R" id="uBt-k8-0ZS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ECi-g6-0fO" userLabel="First Responder" sceneMemberID="firstResponder"/>

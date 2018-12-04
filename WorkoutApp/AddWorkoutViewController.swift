@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class RepsTableViewCell : UITableViewCell {
     @IBOutlet weak var repsNoLabel: UILabel!
@@ -21,7 +22,9 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
         
         // Do any additional setup after loading the view.
     }
-    @IBOutlet weak var stepper: UIStepper!
+    
+    @IBOutlet weak var workoutName: UITextField!
+    @IBOutlet weak var setsStepper: UIStepper!
     @IBOutlet weak var setsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -43,6 +46,29 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func saveButton(_ sender: UIButton) {
         print("save")
+        /*
+        let persistentContainer = NSPersistentContainer(name: "WorkoutApp")
+        persistentContainer.loadPersistentStores{ storeDescription, error in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+            }
+            print("Core Data stack has been initialized with description: \(storeDescription)")
+        }
+        let context = persistentContainer.viewContext
+        let workout = NSEntityDescription.insertNewObject(forEntityName: "Workout", into: context) as! Workout
+        workout.name = workoutName.text
+        workout.sets = Int16(setsStepper.value)
+        for index in 1...Int(setsStepper.value) {
+            let reps = NSEntityDescription.insertNewObject(forEntityName: "Reps", into: context) as! Reps
+        }
+        try! context.save()
+        */
+        
+        for index in 0..<setsVal {
+            let test = IndexPath(row: index, section: 0)
+            let cell = tableView.cellForRow(at: test) as! RepsTableViewCell
+            print(cell.repsStepper.value)
+        }
     }
     
     /*
