@@ -19,8 +19,10 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetch()
         
         // Do any additional setup after loading the view.
+        
     }
     
     @IBOutlet weak var workoutName: UITextField!
@@ -46,28 +48,40 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func saveButton(_ sender: UIButton) {
         print("save")
-        /*
-        let persistentContainer = NSPersistentContainer(name: "WorkoutApp")
-        persistentContainer.loadPersistentStores{ storeDescription, error in
-            if let error = error {
-                assertionFailure(error.localizedDescription)
-            }
-            print("Core Data stack has been initialized with description: \(storeDescription)")
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
         }
-        let context = persistentContainer.viewContext
-        let workout = NSEntityDescription.insertNewObject(forEntityName: "Workout", into: context) as! Workout
+        let context = appDelegate.persistentContainer.viewContext
+        let workout = Workout(context: context)
         workout.name = workoutName.text
-        workout.sets = Int16(setsStepper.value)
-        for index in 1...Int(setsStepper.value) {
-            let reps = NSEntityDescription.insertNewObject(forEntityName: "Reps", into: context) as! Reps
-        }
-        try! context.save()
-        */
+        workout.noOfSets = Int16(setsStepper.value)
+        
         
         for index in 0..<setsVal {
+            let sets = Sets(context: context)
             let test = IndexPath(row: index, section: 0)
             let cell = tableView.cellForRow(at: test) as! RepsTableViewCell
-            print(cell.repsStepper.value)
+            sets.repAmount = Int16(cell.repsStepper.value)
+            workout.addToSets(sets)
+        }
+        try! context.save()
+    }
+    
+    func fetch() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Workout")
+        
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                print(data.value(forKey: "name") as! String)
+            }
+        }
+        catch {
+            print("failed")
         }
     }
     

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G3025" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Reps" representedClassName="Reps" syncable="YES" codeGenerationType="class">
+    <entity name="Sets" representedClassName="Sets" syncable="YES" codeGenerationType="class">
         <attribute name="repAmount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sets" syncable="YES"/>
     </entity>
     <entity name="Workout" representedClassName="Workout" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sets" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Reps" syncable="YES"/>
+        <attribute name="noOfSets" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="sets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sets" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Sets" positionX="-27" positionY="36" width="128" height="75"/>
         <element name="Workout" positionX="-27" positionY="18" width="128" height="90"/>
-        <element name="Reps" positionX="-27" positionY="36" width="128" height="60"/>
     </elements>
 </model>
