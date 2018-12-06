@@ -81,7 +81,7 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         catch {
-            print("failed..")
+            print("failed")
         }
     }
     
