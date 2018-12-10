@@ -56,15 +56,18 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
         workout.name = workoutName.text
         workout.noOfSets = Int16(setsStepper.value)
         
-        
+        var no = 1
         for index in 0..<setsVal {
             let sets = Sets(context: context)
             let test = IndexPath(row: index, section: 0)
             let cell = tableView.cellForRow(at: test) as! RepsTableViewCell
             sets.repAmount = Int16(cell.repsStepper.value)
+            sets.noId = Int16(no)
             workout.addToSets(sets)
+            no = no + 1
         }
         try! context.save()
+        no = 1
     }
     
     func fetch() {
@@ -76,8 +79,16 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
         
         do {
             let result = try context.fetch(request)
-            for data in result as! [NSManagedObject] {
-                print(data.value(forKey: "name") as! String)
+            for index in result as! [Workout] {
+                print(index.value(forKey: "name") as! String)
+                print("Number of Sets: \(index.value(forKey: "noOfSets") as! Int16)")
+                
+                let sets = index.sets as! Set<Sets>
+                let sortedSets = sets.sorted(by: { $0.noId < $1.noId })
+                
+                for set in sortedSets {
+                    print("setNo: \(set.noId) reps: \(set.repAmount)")
+                }
             }
         }
         catch {
