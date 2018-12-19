@@ -70,6 +70,8 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
         no = 1
     }
     
+    /* Full Fetching of Data */
+    /* Unused, exists as example */
     func fetch() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
