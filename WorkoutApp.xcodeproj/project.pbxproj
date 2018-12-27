@@ -13,6 +13,7 @@
 		A562D45821A6402B005AA52B /* WorkoutApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A562D45621A6402B005AA52B /* WorkoutApp.xcdatamodeld */; };
 		A562D45A21A6402F005AA52B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A562D45921A6402F005AA52B /* Assets.xcassets */; };
 		A562D45D21A6402F005AA52B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A562D45B21A6402F005AA52B /* LaunchScreen.storyboard */; };
+		A59981BB21D47B2D00628070 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59981BA21D47B2D00628070 /* DetailViewController.swift */; };
 		A5AC4C9821A7D8F800974474 /* AddWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AC4C9721A7D8F800974474 /* AddWorkoutViewController.swift */; };
 		A5D3D08E21C1CDD7005F8E90 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D3D08D21C1CDD7005F8E90 /* MyCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		A562D45921A6402F005AA52B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A562D45C21A6402F005AA52B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A562D45E21A6402F005AA52B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A59981BA21D47B2D00628070 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A5AC4C9721A7D8F800974474 /* AddWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewController.swift; sourceTree = "<group>"; };
 		A5D3D08D21C1CDD7005F8E90 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +66,7 @@
 				A562D44F21A6402B005AA52B /* AppDelegate.swift */,
 				A562D45121A6402B005AA52B /* ViewController.swift */,
 				A562D45321A6402B005AA52B /* Main.storyboard */,
+				A59981BA21D47B2D00628070 /* DetailViewController.swift */,
 				A5AC4C9721A7D8F800974474 /* AddWorkoutViewController.swift */,
 				A562D45921A6402F005AA52B /* Assets.xcassets */,
 				A562D45B21A6402F005AA52B /* LaunchScreen.storyboard */,
@@ -147,6 +150,7 @@
 				A5AC4C9821A7D8F800974474 /* AddWorkoutViewController.swift in Sources */,
 				A5D3D08E21C1CDD7005F8E90 /* MyCollectionViewCell.swift in Sources */,
 				A562D45221A6402B005AA52B /* ViewController.swift in Sources */,
+				A59981BB21D47B2D00628070 /* DetailViewController.swift in Sources */,
 				A562D45821A6402B005AA52B /* WorkoutApp.xcdatamodeld in Sources */,
 				A562D45021A6402B005AA52B /* AppDelegate.swift in Sources */,
 			);

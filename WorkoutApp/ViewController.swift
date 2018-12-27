@@ -47,13 +47,37 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "col", for: indexPath as IndexPath) as! MyCollectionViewCell
-        cell.backgroundColor = UIColor.cyan
         cell.cellNameTextLabel.text = fetchName(indexPath: indexPath.row)
+        cell.cellNameTextLabel.sizeToFit()
+        cell.backgroundColor = UIColor.lightGray
         return cell
     }
     
+    var valueToPass: String!
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("item selected")
+        
+        let currentCell = collectionView.cellForItem(at: indexPath)! as! MyCollectionViewCell
+        valueToPass = currentCell.cellNameTextLabel.text
+        
+        performSegue(withIdentifier: "showDetail", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showDetail") {
+            let viewController = segue.destination as! DetailViewController
+            viewController.passedValue = valueToPass
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.darkGray
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func addWorkout(_ sender: UIBarButtonItem) {
