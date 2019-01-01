@@ -45,6 +45,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return "noNames"
     }
     
+    func fetchSetAmount(indexPath: Int) -> Int {
+        let x = indexPath
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let context = appDelegate!.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Workout")
+        var result: [Workout]
+        do {
+            result = try context.fetch(request) as! [Workout]
+            return(Int(result[x].noOfSets))
+        }
+        catch {
+            print("failed")
+        }
+        return 0
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "col", for: indexPath as IndexPath) as! MyCollectionViewCell
         cell.cellNameTextLabel.text = fetchName(indexPath: indexPath.row)
@@ -54,12 +70,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     var valueToPass: String!
+    var setAmount: Int!
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("item selected")
-        
         let currentCell = collectionView.cellForItem(at: indexPath)! as! MyCollectionViewCell
         valueToPass = currentCell.cellNameTextLabel.text
-        
+        setAmount = fetchSetAmount(indexPath: indexPath.row)
         performSegue(withIdentifier: "showDetail", sender: self)
     }
     
@@ -67,6 +82,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if (segue.identifier == "showDetail") {
             let viewController = segue.destination as! DetailViewController
             viewController.passedValue = valueToPass
+            viewController.setsAmount = setAmount
         }
     }
     

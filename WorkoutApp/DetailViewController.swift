@@ -8,17 +8,30 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return setsAmount
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "setCell")
+        return cell!
+    }
+    
     
     @IBOutlet weak var repsLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     
     var passedValue: String!
+    var setsAmount: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("Passed Value is: \(passedValue)")
+        nameLabel.text = passedValue
+        print(setsAmount)
         // Do any additional setup after loading the view.
+        
+        /* number of rows = number of sets */
     }
     
 
