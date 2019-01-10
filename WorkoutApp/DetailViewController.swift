@@ -6,6 +6,12 @@
 //  Copyright © 2018 Nathaniel Pather. All rights reserved.
 //
 
+/*
+ To Do
+ Quit button closes view and goes back to ViewController.swift view.
+ Fetch rep amounts for specific sets and assign them to rep associated rep labels.
+ */
+
 import UIKit
 
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -21,6 +27,10 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var repsLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBAction func quitButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     var passedValue: String!
     var setsAmount: Int!

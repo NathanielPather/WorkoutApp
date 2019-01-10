@@ -272,6 +272,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZ1-e6-abD">
                                 <rect key="frame" x="145" y="430" width="30" height="30"/>
                                 <state key="normal" title="Quit"/>
+                                <connections>
+                                    <action selector="quitButton:" destination="Te3-tj-FUc" eventType="touchUpInside" id="Ix2-kU-Eta"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
