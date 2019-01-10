@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    @IBOutlet weak var workoutCollectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fetchCount()
@@ -103,6 +104,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        workoutCollectionView.reloadData()
     }
 }
 

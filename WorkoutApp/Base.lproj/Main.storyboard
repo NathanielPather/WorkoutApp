@@ -77,6 +77,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="workoutCollectionView" destination="RG5-D6-Qjb" id="rgL-BR-K5X"/>
                         <segue destination="Te3-tj-FUc" kind="showDetail" identifier="showDetail" id="cFu-cM-LMw"/>
                     </connections>
                 </viewController>
@@ -180,7 +181,6 @@
                                 <state key="normal" title="Save Workout"/>
                                 <connections>
                                     <action selector="saveButton:" destination="Obo-h2-kn8" eventType="touchUpInside" id="gp9-o9-0Nx"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="NR7-m0-iWj"/>
                                 </connections>
                             </button>
                         </subviews>

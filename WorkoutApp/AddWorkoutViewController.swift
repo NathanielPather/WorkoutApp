@@ -68,6 +68,7 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         try! context.save()
         no = 1
+        dismiss(animated: true, completion: nil)
     }
     
     /* Full Fetching of Data */
