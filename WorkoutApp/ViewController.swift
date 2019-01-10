@@ -71,11 +71,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     var valueToPass: String!
+    var indexPathToPass: IndexPath!
     var setAmount: Int!
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let currentCell = collectionView.cellForItem(at: indexPath)! as! MyCollectionViewCell
         valueToPass = currentCell.cellNameTextLabel.text
         setAmount = fetchSetAmount(indexPath: indexPath.row)
+        indexPathToPass = indexPath
         performSegue(withIdentifier: "showDetail", sender: self)
     }
     
@@ -84,6 +86,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let viewController = segue.destination as! DetailViewController
             viewController.passedValue = valueToPass
             viewController.setsAmount = setAmount
+            viewController.passedIndexPath = indexPathToPass
         }
     }
     

@@ -236,7 +236,7 @@
                                 <rect key="frame" x="16" y="49" width="288" height="373"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="setCell" id="fQ4-5F-EPZ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="setCell" id="fQ4-5F-EPZ" customClass="SetTableViewCell" customModule="WorkoutApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="288" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fQ4-5F-EPZ" id="Sbu-Oh-Coc">
@@ -262,6 +262,9 @@
                                                 <constraint firstItem="Lda-jQ-dc2" firstAttribute="leading" secondItem="Sbu-Oh-Coc" secondAttribute="leading" constant="15" id="yxm-8V-i5c"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="repsLabel" destination="Lda-jQ-dc2" id="TK0-4l-V6K"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -296,7 +299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XWe-yh-NuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141" y="909"/>
+            <point key="canvasLocation" x="140.625" y="908.75"/>
         </scene>
     </scenes>
 </document>
