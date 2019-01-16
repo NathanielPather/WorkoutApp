@@ -8,14 +8,22 @@
 
 /*
  To Do
- Fetch rep amounts for specific sets and assign them to rep associated rep labels.
+ Make all done buttons disabled - Done
+ Make all but first button disabled - Done
+ Make buttons enabled over each click - Done
+ Make previous butons disabled over each click - Done
+ Pop up view on competed workout - Done
+ Exit view after completed workout - Done
  */
 
 import UIKit
 import CoreData
 
+var completedSets = 0
+
 class SetTableViewCell: UITableViewCell {
     @IBOutlet weak var repsLabel: UILabel!
+    @IBOutlet weak var doneButton: UIButton!
 }
 
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -24,9 +32,16 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("cellForRow Executed")
         let cell = tableView.dequeueReusableCell(withIdentifier: "setCell") as! SetTableViewCell
         cell.repsLabel.text = fetchRepAmount(indexPath: indexPath.row).description
         print("row is: \(indexPath.row)")
+        if(completedSets == indexPath.row) {
+            cell.doneButton.isEnabled = true
+        }
+        else {
+            cell.doneButton.isEnabled = false
+        }
         return cell
     }
     
@@ -54,8 +69,34 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var workoutTableView: UITableView!
+    
+    @IBAction func completeSet(_ sender: Any) {
+        print("completedSets = \(completedSets)")
+        completedSets = completedSets + 1
+        workoutTableView.reloadData()
+        
+        if (completedSets == setsAmount) {
+            let alert = UIAlertController(title: "Congratulations!", message: "You've completed your workout!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                switch action.style {
+                case .default:
+                    print("default")
+                    completedSets = 0
+                    self.dismiss(animated: true, completion: nil)
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
     
     @IBAction func quitButton(_ sender: Any) {
+        completedSets = 0
         dismiss(animated: true, completion: nil)
     }
     

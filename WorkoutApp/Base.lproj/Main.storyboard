@@ -252,6 +252,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaX-u8-tPa">
                                                     <rect key="frame" x="227" y="7" width="46" height="30"/>
                                                     <state key="normal" title="Done"/>
+                                                    <connections>
+                                                        <action selector="completeSet:" destination="Te3-tj-FUc" eventType="touchUpInside" id="LUJ-hd-6Z7"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -263,6 +266,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="doneButton" destination="MaX-u8-tPa" id="HW0-aL-qHc"/>
                                             <outlet property="repsLabel" destination="Lda-jQ-dc2" id="TK0-4l-V6K"/>
                                         </connections>
                                     </tableViewCell>
@@ -295,6 +299,7 @@
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="xGV-1e-zuL" id="hf8-3e-9Ow"/>
+                        <outlet property="workoutTableView" destination="O5t-hy-IyI" id="SyB-71-FH4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XWe-yh-NuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
