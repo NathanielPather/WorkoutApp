@@ -14,6 +14,9 @@
  Make previous butons disabled over each click - Done
  Pop up view on competed workout - Done
  Exit view after completed workout - Done
+ Input validation - Done
+ Add timer attribute -
+ Add timer animation - 
  */
 
 import UIKit

@@ -19,6 +19,7 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setsLabel.text = setsVal.description
         fetch()
         
         // Do any additional setup after loading the view.
@@ -30,7 +31,7 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var setsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var setsVal: Int = 0
+    var setsVal: Int = 1
     
     /* Why do actions need outlets? This method doesn't work when stepper outlet
  is commented out */
@@ -47,28 +48,44 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
-        print("save")
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
+        if (workoutName.text! == "") {
+            let alert = UIAlertController(title: "Error", message: "Please enter a name for the workout!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { action in
+                switch action.style {
+                case .default:
+                    print("default")
+                case .destructive:
+                    print("destructive")
+                case .cancel:
+                    print("cancel")
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
         }
-        let context = appDelegate.persistentContainer.viewContext
-        let workout = Workout(context: context)
-        workout.name = workoutName.text
-        workout.noOfSets = Int16(setsStepper.value)
-        
-        var no = 1
-        for index in 0..<setsVal {
-            let sets = Sets(context: context)
-            let test = IndexPath(row: index, section: 0)
-            let cell = tableView.cellForRow(at: test) as! RepsTableViewCell
-            sets.repAmount = Int16(cell.repsStepper.value)
-            sets.noId = Int16(no)
-            workout.addToSets(sets)
-            no = no + 1
+        else {
+            print("save")
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            let context = appDelegate.persistentContainer.viewContext
+            let workout = Workout(context: context)
+            workout.name = workoutName.text
+            workout.noOfSets = Int16(setsStepper.value)
+            
+            var no = 1
+            for index in 1..<setsVal {
+                let sets = Sets(context: context)
+                let test = IndexPath(row: index, section: 0)
+                let cell = tableView.cellForRow(at: test) as! RepsTableViewCell
+                sets.repAmount = Int16(cell.repsStepper.value)
+                sets.noId = Int16(no)
+                workout.addToSets(sets)
+                no = no + 1
+            }
+            try! context.save()
+            no = 1
+            dismiss(animated: true, completion: nil)
         }
-        try! context.save()
-        no = 1
-        dismiss(animated: true, completion: nil)
     }
     
     /* Full Fetching of Data */

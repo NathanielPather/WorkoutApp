@@ -105,7 +105,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="UWI-zm-zG2">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="UWI-zm-zG2">
                                 <rect key="frame" x="210.5" y="108" width="94" height="29"/>
                                 <connections>
                                     <action selector="stepperValueChanged:" destination="Obo-h2-kn8" eventType="valueChanged" id="6FI-YX-xRi"/>
@@ -140,7 +140,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="OlY-vG-zRJ">
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="OlY-vG-zRJ">
                                                     <rect key="frame" x="109.5" y="7.5" width="94" height="29"/>
                                                     <connections>
                                                         <action selector="repsStepperValueChanged:" destination="Obo-h2-kn8" eventType="valueChanged" id="7D6-CM-aWd"/>
