@@ -169,6 +169,50 @@
                                             <outlet property="repsStepper" destination="OlY-vG-zRJ" id="Rce-B7-KeS"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestCell" id="qwd-7A-LtU" customClass="RestTableViewCell" customModule="WorkoutApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="99.5" width="313" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qwd-7A-LtU" id="Ba5-Ge-bXu">
+                                            <rect key="frame" x="0.0" y="0.0" width="313" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hr-MS-sag">
+                                                    <rect key="frame" x="15" y="12" width="34" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVt-eA-jj4">
+                                                    <rect key="frame" x="263" y="12" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minValue="0.0" maxValue="500" translatesAutoresizingMaskIntoConstraints="NO" id="ic9-YI-846">
+                                                    <rect key="frame" x="56" y="7" width="201" height="31"/>
+                                                    <connections>
+                                                        <action selector="restSliderChanged:" destination="Obo-h2-kn8" eventType="valueChanged" id="5xY-TN-svb"/>
+                                                    </connections>
+                                                </slider>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7hr-MS-sag" firstAttribute="centerY" secondItem="Ba5-Ge-bXu" secondAttribute="centerY" id="6jX-Xg-TRj"/>
+                                                <constraint firstItem="dVt-eA-jj4" firstAttribute="leading" secondItem="ic9-YI-846" secondAttribute="trailing" constant="8" symbolic="YES" id="B8r-sc-foS"/>
+                                                <constraint firstItem="7hr-MS-sag" firstAttribute="centerY" secondItem="ic9-YI-846" secondAttribute="centerY" id="HE0-Iu-kbz"/>
+                                                <constraint firstItem="ic9-YI-846" firstAttribute="leading" secondItem="7hr-MS-sag" secondAttribute="trailing" constant="9" id="abF-Al-jsI"/>
+                                                <constraint firstItem="ic9-YI-846" firstAttribute="centerX" secondItem="Ba5-Ge-bXu" secondAttribute="centerX" id="f1f-PA-AID"/>
+                                                <constraint firstItem="7hr-MS-sag" firstAttribute="bottom" secondItem="Ba5-Ge-bXu" secondAttribute="bottomMargin" id="jIa-4t-o85"/>
+                                                <constraint firstItem="7hr-MS-sag" firstAttribute="firstBaseline" secondItem="dVt-eA-jj4" secondAttribute="firstBaseline" id="kLm-xO-O1I"/>
+                                                <constraint firstItem="ic9-YI-846" firstAttribute="top" secondItem="Ba5-Ge-bXu" secondAttribute="topMargin" constant="-4" id="sMV-eG-1BB"/>
+                                                <constraint firstItem="7hr-MS-sag" firstAttribute="leading" secondItem="Ba5-Ge-bXu" secondAttribute="leadingMargin" constant="-1" id="tgw-uv-o7E"/>
+                                                <constraint firstItem="7hr-MS-sag" firstAttribute="baseline" secondItem="dVt-eA-jj4" secondAttribute="baseline" id="xjr-No-lVy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="restSlider" destination="ic9-YI-846" id="cum-BQ-HhD"/>
+                                            <outlet property="restTimeLabel" destination="dVt-eA-jj4" id="zvi-mS-k5x"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <sections/>
                                 <connections>
@@ -216,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ECi-g6-0fO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1292" y="125"/>
+            <point key="canvasLocation" x="1291.875" y="125"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="XM6-gn-DkG">
@@ -256,11 +300,19 @@
                                                         <action selector="completeSet:" destination="Te3-tj-FUc" eventType="touchUpInside" id="LUJ-hd-6Z7"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rest - 2:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZ5-Uj-SJA">
+                                                    <rect key="frame" x="101" y="11.5" width="86" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="MaX-u8-tPa" firstAttribute="centerY" secondItem="Sbu-Oh-Coc" secondAttribute="centerY" id="Rz8-2c-AdQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="MaX-u8-tPa" secondAttribute="trailing" constant="15" id="VLy-Kp-J20"/>
+                                                <constraint firstItem="KZ5-Uj-SJA" firstAttribute="centerX" secondItem="Sbu-Oh-Coc" secondAttribute="centerX" id="c5C-zt-scO"/>
                                                 <constraint firstItem="Lda-jQ-dc2" firstAttribute="centerY" secondItem="Sbu-Oh-Coc" secondAttribute="centerY" id="j6R-Br-ktd"/>
+                                                <constraint firstItem="KZ5-Uj-SJA" firstAttribute="centerY" secondItem="Sbu-Oh-Coc" secondAttribute="centerY" id="nmt-4f-ZGK"/>
                                                 <constraint firstItem="MaX-u8-tPa" firstAttribute="leading" secondItem="Lda-jQ-dc2" secondAttribute="trailing" constant="173" id="tXb-rT-KhH"/>
                                                 <constraint firstItem="Lda-jQ-dc2" firstAttribute="leading" secondItem="Sbu-Oh-Coc" secondAttribute="leading" constant="15" id="yxm-8V-i5c"/>
                                             </constraints>

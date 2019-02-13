@@ -15,7 +15,14 @@ class RepsTableViewCell : UITableViewCell {
     
 }
 
+class RestTableViewCell : UITableViewCell {
+    @IBOutlet weak var restTimeLabel: UILabel!
+    @IBOutlet weak var restSlider: UISlider!
+    
+}
+
 class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    let step: Float = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +54,11 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.reloadData()
     }
     
+    @IBAction func restSliderChanged(_ sender: UISlider) {
+        let roundedStepValue = round(sender.value / step) * step
+        sender.value = roundedStepValue
+        tableView.reloadData()
+    }
     @IBAction func saveButton(_ sender: UIButton) {
         if (workoutName.text! == "") {
             let alert = UIAlertController(title: "Error", message: "Please enter a name for the workout!", preferredStyle: .alert)
@@ -129,13 +141,24 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return setsVal
+        return setsVal * 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RepsCell", for: indexPath) as! RepsTableViewCell
-        cell.repsNoLabel.text = Int(cell.repsStepper.value).description
-        return cell
+        if (indexPath.row % 2 == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RepsCell", for: indexPath) as! RepsTableViewCell
+            cell.repsNoLabel.text = Int(cell.repsStepper.value).description
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RestCell", for: indexPath) as! RestTableViewCell
+            let minutes: Int = Int(cell.restSlider.value) / 60
+            let seconds = Int(cell.restSlider.value) % 60
+            
+            cell.restTimeLabel.text = "\(minutes):" + String(format: "%02d",seconds)
+            
+            return cell
+        }
     }
     
     /*
